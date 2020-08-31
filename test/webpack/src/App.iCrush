@@ -4,6 +4,7 @@
     <span class='inner'>
       内部的
     </span>
+    &lt;script&gt;script&lt;/script&gt;
   </div>
 </template>
 

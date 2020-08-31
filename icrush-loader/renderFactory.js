@@ -5,8 +5,18 @@ module.exports = function (template, id) {
     let value = Engine.valueOf();
     if (require('@yelloxing/core.js').isString(value)) {
 
-      // 由于回车的问题，非`的字符串不支持，我们需要使用转义替换
-      return JSON.stringify(value.replace(/[\n\r]/g, '↵'));
+      return JSON.stringify(value
+
+        // 由于回车的问题，非`的字符串不支持，我们需要使用转义替换
+        .replace(/[\n\r]/g, '↵')
+
+        // 特殊转义字符进行校对
+        .replace(/\&lt;/g, '<')
+        .replace(/\&gt;/g, '>')
+        .replace(/\&amp;/g, '&')
+        .replace(/\&nbsp;/g, ' ')
+
+      );
     } else {
 
       let childrenRender = "[", childrenNode = Engine.children();
