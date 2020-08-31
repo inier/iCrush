@@ -5,7 +5,7 @@ module.exports = function (template, id) {
     let value = Engine.valueOf();
     if (require('@yelloxing/core.js').isString(value)) {
 
-      return JSON.stringify(value
+      return JSON.stringify(value.trim()
 
         // 由于回车的问题，非`的字符串不支持，我们需要使用转义替换
         .replace(/[\n\r]/g, '↵')
@@ -14,7 +14,6 @@ module.exports = function (template, id) {
         .replace(/\&lt;/g, '<')
         .replace(/\&gt;/g, '>')
         .replace(/\&amp;/g, '&')
-        .replace(/\&nbsp;/g, ' ')
 
       );
     } else {
