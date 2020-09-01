@@ -8,7 +8,7 @@ module.exports = function (template, id) {
       return JSON.stringify(value.trim()
 
         // 由于回车的问题，非`的字符串不支持，我们需要使用转义替换
-        .replace(/[\n\r]/g, '↵')
+        .replace(/\r/g, '↵').replace(/\n/g,'')
 
         // 特殊转义字符进行校对
         .replace(/\&lt;/g, '<')
