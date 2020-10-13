@@ -1,5 +1,5 @@
 /*!
-* iCrush v2.0.1
+* iCrush v2.1.0
 * (c) 2019-2020 心叶 git+https://github.com/yelloxing/iCrush.git
 * License: MIT
 */
@@ -1099,6 +1099,9 @@
             }
             params.push(param);
           }
+
+          // 追加事件event
+          params.push(event);
 
           binding.target[exps[1]].apply(binding.target, params);
 

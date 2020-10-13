@@ -42,6 +42,9 @@ export default {
         params.push(param);
       }
 
+      // 追加事件event
+      params.push(event);
+
       binding.target[exps[1]].apply(binding.target, params);
 
       if (modifier.once) {
