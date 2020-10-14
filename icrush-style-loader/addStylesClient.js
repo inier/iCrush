@@ -19,9 +19,9 @@ export default function addStylesClient(parentId, list, isICrushStyle) {
         style = style.replace(/( {0,}){/g, "{");
         style = style.replace(/( {0,}),/g, ",");
 
-        let temp = "";
-        let isSpecial = false, isContent = false;
-        for (let i = 0; i < style.length; i++) {
+        var temp = "";
+        var isSpecial = false, isContent = false;
+        for (var i = 0; i < style.length; i++) {
             if (style[i] == '{' && !isSpecial) {
                 isContent = true;
                 temp += "[" + parentId + "]";
@@ -44,7 +44,7 @@ export default function addStylesClient(parentId, list, isICrushStyle) {
     }
 
     styleElement.innerHTML = style;
-    styleElement.type = 'text/css';
+    styleElement.setAttribute('type', 'text/css');
     head.appendChild(styleElement);
 
 };
